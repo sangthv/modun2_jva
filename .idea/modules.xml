@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Bai16.IODocGhiFile/Bai16.IODocGhiFile.iml" filepath="$PROJECT_DIR$/Bai16.IODocGhiFile/Bai16.IODocGhiFile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bai17.IO_NhiPhan/Bai17.IO_NhiPhan.iml" filepath="$PROJECT_DIR$/Bai17.IO_NhiPhan/Bai17.IO_NhiPhan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QuanLi/QuanLi.iml" filepath="$PROJECT_DIR$/QuanLi/QuanLi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modun2.iml" filepath="$PROJECT_DIR$/modun2.iml" />
+    </modules>
+  </component>
+</project>
