@@ -4,6 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Bai16.IODocGhiFile/Bai16.IODocGhiFile.iml" filepath="$PROJECT_DIR$/Bai16.IODocGhiFile/Bai16.IODocGhiFile.iml" />
       <module fileurl="file://$PROJECT_DIR$/Bai17.IO_NhiPhan/Bai17.IO_NhiPhan.iml" filepath="$PROJECT_DIR$/Bai17.IO_NhiPhan/Bai17.IO_NhiPhan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bai18.Threading/Bai18.Threading.iml" filepath="$PROJECT_DIR$/Bai18.Threading/Bai18.Threading.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bai19_StringVoiRegex/Bai19_StringVoiRegex.iml" filepath="$PROJECT_DIR$/Bai19_StringVoiRegex/Bai19_StringVoiRegex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CaseMoDun2_QLThuVien/CaseMoDun2_QLThuVien.iml" filepath="$PROJECT_DIR$/CaseMoDun2_QLThuVien/CaseMoDun2_QLThuVien.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LuyenTap/LuyenTap.iml" filepath="$PROJECT_DIR$/LuyenTap/LuyenTap.iml" />
       <module fileurl="file://$PROJECT_DIR$/QuanLi/QuanLi.iml" filepath="$PROJECT_DIR$/QuanLi/QuanLi.iml" />
       <module fileurl="file://$PROJECT_DIR$/modun2.iml" filepath="$PROJECT_DIR$/modun2.iml" />
     </modules>
