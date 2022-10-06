@@ -59,11 +59,11 @@ public class Book implements Serializable {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "bookName='" + bookName + '\'' +
-                ", authorName='" + authorName + '\'' +
-                ", publishDate='" + publishDate + '\'' +
-                ", manufacturename='" + manufacturename + '\'' +
-                ", price=" + price +'}';
+        return "Sách {" +
+                "tên sách ='" + bookName + '\'' +
+                ", tác giả  ='" + authorName + '\'' +
+                ", ngày sản xuất='" + publishDate + '\'' +
+                ", nhà sản xuất='" + manufacturename + '\'' +
+                ", giá bán =" + price +'}';
     }
 }

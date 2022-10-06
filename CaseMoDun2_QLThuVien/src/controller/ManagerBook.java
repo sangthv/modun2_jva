@@ -4,10 +4,7 @@ import IO.ReadAndWrite;
 import models.Book;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class ManagerBook {
     File file = new File("E:\\modun2_java\\modun2\\CaseMoDun2_QLThuVien\\src\\FileText\\Book.txt");
@@ -34,7 +31,6 @@ public class ManagerBook {
                 System.out.println("Bạn phải nhập số!");
             }
         } while (price == 0);
-
         return new Book(bookName, authorName, publishDate, manufactureName, price);
     }
 
@@ -73,22 +69,52 @@ public class ManagerBook {
             System.out.println("nhập sai");
         }
     }
-
     //sửa giá.......................
     public void editPrice() {
-        Book b = findBook();
-        for (int i = 0; i < books.size(); i++) {
-            if (books.get(i).getBookName().equals(b.getBookName())) {
-                System.out.println("nhập lại giá muốn sửa: ");
-                int price = Integer.parseInt(scanner.nextLine());
-                books.get(i).setPrice(price);
-            }
+
+       int price = 0;
+       boolean check = true;
+       while (check){
+           System.out.println("Nhập tên sách: ");
+           String bookName = scanner.nextLine();
+           for (int i = 0; i<books.size(); i++){
+               if (books.get(i).getBookName().equals(bookName)){
+                   boolean nhap = false;
+                    do {
+                        try {
+                            nhap = false;
+                            System.out.println(" nhập giá muốn sửa lại: ");
+                            price = Integer.parseInt(scanner.nextLine());
+                        }catch (Exception e){
+                            System.out.println("nhập lại giá muốn sửa ");
+                            nhap = true;
+                        }
+                    } while (nhap);
+                   books.get(i).setPrice(price);
+                   readAndWrite.write(file, books);
+                   check = false;
+               }
+           }
+           if (check){
+               System.out.println("Nhập sai");
+           }
+       }
+
         }
-    }
 
     //xóa tất cả danh sách.................
-    public void delete() {
-        books.clear();
-        readAndWrite.write(file, books);
+    public Book delete() {
+        while (true) {
+            System.out.println(" nhập tên sách muốn xóa: ");
+            String bookName = scanner.nextLine();
+            for (int i = 0; i < books.size(); i++) {
+                if (books.get(i).getBookName().equals(bookName)) {
+                    books.remove(books.get(i));
+                    readAndWrite.write(file, books);
+                    return books.get(i);
+                }
+            }
+            System.out.println("sách không tồn tại");
+        }
     }
 }
