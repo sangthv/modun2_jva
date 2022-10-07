@@ -15,11 +15,11 @@ public class MenuLogin {
     public void menu() {
         int choice = 0;
         while (true) {
-            System.out.println("menu--------------------");
+            System.out.println("menu-------------------------------------------------");
             System.out.println("1. Đăng nhập");
             System.out.println("2. Đăng ký");
             System.out.println("0. Thoát");
-            System.out.println("-------------------------");
+            System.out.println("-------------------------------------------------------");
             try {
                 choice = Integer.parseInt(scanner.nextLine());
             } catch (Exception e) {
@@ -34,12 +34,6 @@ public class MenuLogin {
                     }else {
                         menuUser.menuUser();
                     }
-
-//                    if (account.getUsername().equals("sang2") && account.getPassword().equals("123")){
-//                        menuProduct.menu();
-//                    }else {
-//                        System.out.println("user");
-//                    }
                     break;
                 case 2:
                     managerAccount.register();

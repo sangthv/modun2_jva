@@ -12,7 +12,7 @@ public class MenuUser {
 
         while (true){
             int choice = -1;
-            System.out.println("--------------------------------------------------");
+            System.out.println("---------------------------------------------------");
             System.out.println(" sách trong thư viện: ");
             System.out.println(" 1. thông tin sách");
             System.out.println(" 2. Tìm kiếm tên sách");

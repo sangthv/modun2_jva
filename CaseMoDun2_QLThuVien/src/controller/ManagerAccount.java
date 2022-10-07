@@ -13,22 +13,31 @@ public class ManagerAccount {
     ArrayList<Account> accounts = readAndWrite.read(file);
     Scanner scanner = new Scanner(System.in);
 
-    public Account login() {
-        System.out.println(" nhập Username");
-        String username = scanner.nextLine();
-        System.out.println(" nhập Password");
-        String password = scanner.nextLine();
-//        if (username.equals("sang2") && password.equals("123")){
-//            return new Account(username,password,"nn");
-//        }
-        for (int i = 0; i < accounts.size(); i++) {
-            if (accounts.get(i).getUsername().equals(username) && accounts.get(i).getPassword().equals(password)) {
-                return accounts.get(i);
-            }
-
-        }
-        return null;
+    public ArrayList<Account> getAccounts() {
+        return accounts;
     }
+
+    public Account login() {
+        boolean check = true;
+        Account account = null;
+        while (check) {
+            System.out.println(" nhập Username");
+            String username = scanner.nextLine();
+            System.out.println(" nhập Password");
+            String password = scanner.nextLine();
+            for (int i = 0; i < accounts.size(); i++) {
+                if (accounts.get(i).getUsername().equals(username) && accounts.get(i).getPassword().equals(password)) {
+                    account = accounts.get(i);
+                    check =false;
+                }
+            }
+            if (account == null){
+                    System.out.println(" bạn đã đăng nhập sai đăng nhập lại ");
+            }
+        }
+        return account;
+    }
+
     public void register() {
         String username;
         while (true) {
@@ -41,9 +50,7 @@ public class ManagerAccount {
         }
         System.out.println("Nhập password");
         String password = scanner.nextLine();
-        System.out.println("Nhập role");
-        String role = scanner.nextLine();
-        accounts.add(new Account(username, password, role));
+        accounts.add(new Account(username, password, "User"));
         readAndWrite.write(file, accounts);
     }
 

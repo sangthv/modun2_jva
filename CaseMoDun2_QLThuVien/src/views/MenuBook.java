@@ -13,7 +13,7 @@ public class MenuBook {
 
         while (true){
             int choice = -1;
-            System.out.println("--------------------------------------------------");
+            System.out.println("-------------------------------------------------------------");
             System.out.println(" Quản Lí Thư Viện Sách: ");
             System.out.println(" 1. Nhập thông tin quyển sách");
             System.out.println(" 2. Hiền thị thông tin sách");
@@ -21,8 +21,9 @@ public class MenuBook {
             System.out.println(" 4. Tìm kiếm tên sách");
             System.out.println(" 5. sửa thông tin sách theo giá");
             System.out.println(" 6. xóa thông tin sách");
+            System.out.println(" 7. Hiển thị danh sách người truy cập");
             System.out.println(" 0. thoát ");
-            System.out.println("------------------------------------------------------");
+            System.out.println("----------------------------------------------------------------");
             while (choice == -1) {
                 try {
                     choice = Integer.parseInt(scanner.nextLine());
@@ -50,6 +51,9 @@ public class MenuBook {
                     break;
                 case 6:
                     managerBook.delete();
+                    break;
+                case 7:
+                    managerBook.showUser();
                     break;
                 case 0:
                     System.out.println("cảm ơn bạn đã đến thư viện sách");
