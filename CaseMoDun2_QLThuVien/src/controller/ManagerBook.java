@@ -1,6 +1,7 @@
 package controller;
 
 import IO.ReadAndWrite;
+import models.Account;
 import models.Book;
 
 import java.io.File;
@@ -106,28 +107,30 @@ public class ManagerBook {
         }
     }
 
-    //xóa tất cả danh sách.................
+    //xóa  danh sách.................
     public void delete() {
         while (true) {
             System.out.println(" nhập tên sách muốn xóa: ");
             String bookName = scanner.nextLine();
             for (int i = 0; i < books.size(); i++) {
                 if (books.get(i).getBookName().equals(bookName)) {
-                    books.remove(books.get(i));
-                    readAndWrite.write(file, books);
-                    return ;
+                    System.out.println("bạn có muốn xóa không: Yes/No? ");
+                    if(scanner.nextLine().equalsIgnoreCase("y")){
+                        books.remove(books.get(i));
+                        readAndWrite.write(file, books);
+                        System.out.println("Xóa thành công!");
+                        return ;
+                    }else {
+                        System.out.println("bạn phải nhập y để xóa");
+                        System.out.println("Hủy xóa!");
+                        return;
+                    }
                 }
             }
             System.out.println("sách không tồn tại");
         }
     }
 
-    //    //        hiển thị người truy cập
-    public void showUser() {
-        System.out.println("danh sách người truy cập vào: ");
-        for (int i = 0; i < managerAccount.getAccounts().size(); i++) {
-            System.out.println(managerAccount.getAccounts().get(i).getUsername() + " " + managerAccount.getAccounts().get(i).getRole());
-        }
 
-    }
+
 }

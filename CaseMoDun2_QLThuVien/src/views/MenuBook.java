@@ -1,5 +1,6 @@
 package views;
 
+import controller.ManagerAccount;
 import controller.ManagerBook;
 import models.Book;
 
@@ -10,6 +11,7 @@ public class MenuBook {
     public void menu() {
         Scanner scanner = new Scanner(System.in);
         ManagerBook managerBook = new ManagerBook();
+        ManagerAccount managerAccount = new ManagerAccount();
 
         while (true){
             int choice = -1;
@@ -22,6 +24,7 @@ public class MenuBook {
             System.out.println(" 5. sửa thông tin sách theo giá");
             System.out.println(" 6. xóa thông tin sách");
             System.out.println(" 7. Hiển thị danh sách người truy cập");
+            System.out.println(" 8. xóa  người truy cập");
             System.out.println(" 0. thoát ");
             System.out.println("----------------------------------------------------------------");
             while (choice == -1) {
@@ -53,7 +56,10 @@ public class MenuBook {
                     managerBook.delete();
                     break;
                 case 7:
-                    managerBook.showUser();
+                    managerAccount.showUser();
+                    break;
+                case 8:
+                    managerAccount.deleteUser();
                     break;
                 case 0:
                     System.out.println("cảm ơn bạn đã đến thư viện sách");
