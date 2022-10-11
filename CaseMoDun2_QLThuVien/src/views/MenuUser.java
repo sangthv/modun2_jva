@@ -1,6 +1,7 @@
 package views;
 
 import controller.ManagerBook;
+import controller.ManagerUser;
 import models.Book;
 
 import java.util.Scanner;
@@ -9,6 +10,7 @@ public class MenuUser {
     public void menuUser(){
         Scanner scanner = new Scanner(System.in);
         ManagerBook managerBook = new ManagerBook();
+        ManagerUser managerUser = new ManagerUser();
 
         while (true){
             int choice = -1;
@@ -16,6 +18,8 @@ public class MenuUser {
             System.out.println(" sách trong thư viện: ");
             System.out.println(" 1. thông tin sách");
             System.out.println(" 2. Tìm kiếm tên sách");
+            System.out.println(" 3. mua sách");
+            System.out.println(" 4. tổng tiền thanh toán ");
             System.out.println(" 0. thoát ");
             System.out.println("------------------------------------------------------");
             while (choice == -1) {
@@ -32,6 +36,12 @@ public class MenuUser {
                 case 2:
                     Book book1 = managerBook.findBook();
                     System.out.println(book1);
+                    break;
+                case 3:
+                    managerUser.buyBook();
+                    break;
+                case 4:
+                    managerUser.totalMoney();
                     break;
                 case 0:
                     System.out.println("cảm ơn bạn đã đến thư viện sách");

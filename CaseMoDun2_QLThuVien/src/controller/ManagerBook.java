@@ -106,7 +106,6 @@ public class ManagerBook {
             }
         }
     }
-
     //xóa  danh sách.................
     public void delete() {
         while (true) {

@@ -62,6 +62,13 @@ public class ManagerAccount {
         }
         return true;
     }
+    //    //        hiển thị người truy cập
+    public void showUser() {
+        System.out.println("danh sách người truy cập vào: ");
+        for (int i = 0; i < accounts.size(); i++) {
+            System.out.println(accounts.get(i).getUsername() + " " + accounts.get(i).getRole());
+        }
+    }
 
     //        xóa tài khoản user
     public void deleteUser() {
@@ -75,7 +82,7 @@ public class ManagerAccount {
         for (int i = 0; i < accounts.size(); i++) {
             if (accounts.get(i).getUsername().equals(userName)) {
                 ++choice;
-                System.out.println("bạn có muốn xóa tài khoản người dùng này không nhấn Y/N? ");
+                System.out.println(" bạn có muốn xóa không: Yes/No?  ");
                 String x = scanner.nextLine();
                 if (x.equalsIgnoreCase("y")) {
                     accounts.remove(i);
@@ -89,13 +96,5 @@ public class ManagerAccount {
             System.out.println("Không tồn tại tài khoản này");
         }
         readAndWrite.write(file, accounts);
-    }
-
-    //    //        hiển thị người truy cập
-    public void showUser() {
-        System.out.println("danh sách người truy cập vào: ");
-        for (int i = 0; i < accounts.size(); i++) {
-            System.out.println(accounts.get(i).getUsername() + " " + accounts.get(i).getRole());
-        }
     }
 }
