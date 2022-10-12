@@ -2,6 +2,7 @@ package controller;
 
 import IO.ReadAndWrite;
 import models.Account;
+import valueDate.Validate;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -22,9 +23,9 @@ public class ManagerAccount {
         Account account = null;
         while (check) {
             System.out.println(" nhập Username");
-            String username = scanner.nextLine();
+            String username = Validate.valiDateAccount(Validate.REGEX_ACCOUNT);
             System.out.println(" nhập Password");
-            String password = scanner.nextLine();
+            String password = Validate.valiDatePassWord(Validate.REGEX_NUMBER);
             for (int i = 0; i < accounts.size(); i++) {
                 if (accounts.get(i).getUsername().equals(username) && accounts.get(i).getPassword().equals(password)) {
                     account = accounts.get(i);

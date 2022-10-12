@@ -16,9 +16,9 @@ public class MenuBook {
         while (true){
             int choice = -1;
             System.out.println("-------------------------------------------------------------");
-            System.out.println(" Quản Lí Thư Viện Sách: ");
+            System.out.println(" Quản Lí cửa hàng  Sách: ");
             System.out.println(" 1. Nhập thông tin quyển sách");
-            System.out.println(" 2. Hiền thị thông tin sách");
+            System.out.println(" 2. Hiền thị thông tin toàn bộ quyển sách");
             System.out.println(" 3. Sắp xếp theo tên tác giả");
             System.out.println(" 4. Tìm kiếm tên sách");
             System.out.println(" 5. sửa thông tin sách theo giá");

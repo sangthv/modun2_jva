@@ -24,21 +24,20 @@ public class ManagerUser {
         int i = 0;
         Book book = managerBook.findBook();
         oder.add(book);
+        managerBook.remote(book);
         String str = "";
-        for (Book x:oder) {
+        for (Book x : oder) {
             str += x + "\n";
-        } {
-
         }
         System.out.println("bạn đã order sách: \n" + str);
     }
 
-    public double totalMoney(){
+    public double totalMoney() {
         double total = 0.0;
-        for (int i = 0; i <oder.size() ; i++) {
+        for (int i = 0; i < oder.size(); i++) {
             total += oder.get(i).getPrice();
         }
-        System.out.println("tổng giá tiền là: "+ total);
+        System.out.println("tổng giá tiền là: " + total);
         return total;
     }
 }

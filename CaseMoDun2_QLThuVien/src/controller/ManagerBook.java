@@ -1,8 +1,8 @@
 package controller;
 
 import IO.ReadAndWrite;
-import models.Account;
 import models.Book;
+import valueDate.Validate;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -19,14 +19,27 @@ public class ManagerBook {
     Scanner scanner = new Scanner(System.in);
 
     public Book inPut() {
-        System.out.println(" nhập tên sách :");
-        String bookName = scanner.nextLine();
-        System.out.println(" nhập tên tác giả: ");
-        String authorName = scanner.nextLine();
-        System.out.println(" nhập ngày xuất bản : ");
-        String publishDate = scanner.nextLine();
-        System.out.println(" nhập nhà sản xuất: ");
-        String manufactureName = scanner.nextLine();
+        String bookName, authorName, publishDate, manufactureName;
+
+
+            System.out.println(" nhập tên sách :");
+            bookName = Validate.valiDateInPut(Validate.REGEX_NO_EMPTY);
+
+            System.out.println(" nhập tên tác giả: ");
+            authorName = Validate.valiDateInPut(Validate.REGEX_NO_EMPTY);
+
+
+            System.out.println(" nhập ngày xuất bản : ");
+            publishDate =Validate.valiDateInPut(Validate.REGEX_NO_EMPTY);;
+            System.out.println(" nhập nhà sản xuất: ");
+            manufactureName = Validate.valiDateInPut(Validate.REGEX_NO_EMPTY);;
+
+//            if (bookName.equals("") && authorName.equals("") && publishDate.equals("") && manufactureName.equals("")) {
+//                System.out.println(" bạn phải nhập ký tự vào");
+//            }else {
+//                break;
+//            }
+//        }
         int price = 0;
         do {
             try {
@@ -37,6 +50,7 @@ public class ManagerBook {
                 System.out.println("Bạn phải nhập số!");
             }
         } while (price == 0);
+
         return new Book(bookName, authorName, publishDate, manufactureName, price);
     }
 
@@ -46,6 +60,7 @@ public class ManagerBook {
     }
 
     public void show() {
+        books = readAndWrite.read(file);
         for (int i = 0; i < books.size(); i++) {
             System.out.println(books.get(i).toString());
         }
@@ -67,7 +82,7 @@ public class ManagerBook {
             System.out.println("Nhập tên sách: ");
             String bookName = scanner.nextLine();
             for (int i = 0; i < books.size(); i++) {
-                if (books.get(i).getBookName().equals(bookName)) {
+                if (books.get(i).getBookName().contains(bookName)) {
                     System.out.println("Đã tìm thấy!");
                     return books.get(i);
                 }
@@ -106,6 +121,7 @@ public class ManagerBook {
             }
         }
     }
+
     //xóa  danh sách.................
     public void delete() {
         while (true) {
@@ -114,12 +130,12 @@ public class ManagerBook {
             for (int i = 0; i < books.size(); i++) {
                 if (books.get(i).getBookName().equals(bookName)) {
                     System.out.println("bạn có muốn xóa không: Yes/No? ");
-                    if(scanner.nextLine().equalsIgnoreCase("y")){
+                    if (scanner.nextLine().equalsIgnoreCase("y")) {
                         books.remove(books.get(i));
                         readAndWrite.write(file, books);
                         System.out.println("Xóa thành công!");
-                        return ;
-                    }else {
+                        return;
+                    } else {
                         System.out.println("bạn phải nhập y để xóa");
                         System.out.println("Hủy xóa!");
                         return;
@@ -130,6 +146,13 @@ public class ManagerBook {
         }
     }
 
-
+    public void remote(Book book) {
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).getBookName().equals(book.getBookName())) {
+                books.remove(i);
+            }
+        }
+        readAndWrite.write(file, books);
+    }
 
 }
